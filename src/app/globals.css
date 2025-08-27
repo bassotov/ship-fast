@@ -1,0 +1,320 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ========================================
+   THEME CONFIGURATION
+   ======================================== */
+
+@theme inline {
+  /* ----------------
+     SPACING & LAYOUT
+     ---------------- */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+
+  /* FONTS */
+  --chart-font-size: 0.75rem;  /* 12px */
+  --chart-label-size: 0.625rem; /* 10px */
+
+  /* ----------------
+     CORE COLORS
+     ---------------- */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  /* ----------------
+     SEMANTIC COLORS
+     ---------------- */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  /* ----------------
+     UI ELEMENTS
+     ---------------- */
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* ----------------
+     CHART COLORS
+     ---------------- */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* ----------------
+     SIDEBAR (Optional)
+     ---------------- */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* ========================================
+   CSS VARIABLES
+   ======================================== */
+
+:root {
+  /* ----------------
+     LAYOUT
+     ---------------- */
+  --radius: 0.625rem;
+
+  /* ----------------
+     BRAND COLORS (Purple Theme)
+     Using OKLCH: lightness chroma hue
+     ---------------- */
+  --purple-50: oklch(0.985 0.01 285);
+  --purple-100: oklch(0.967 0.02 285);
+  --purple-200: oklch(0.92 0.04 285);
+  --purple-300: oklch(0.84 0.08 285);
+  --purple-400: oklch(0.705 0.15 285);
+  --purple-500: oklch(0.63 0.20 285);
+  --purple-600: oklch(0.55 0.22 285);
+  --purple-700: oklch(0.45 0.18 285);
+  --purple-800: oklch(0.35 0.14 285);
+  --purple-900: oklch(0.27 0.10 285);
+  --purple-950: oklch(0.21 0.06 285);
+
+  /* ----------------
+     NEUTRAL COLORS
+     ---------------- */
+  --neutral-50: oklch(0.985 0 0);
+  --neutral-100: oklch(0.967 0.001 286);
+  --neutral-200: oklch(0.92 0.004 286);
+  --neutral-300: oklch(0.84 0.006 286);
+  --neutral-400: oklch(0.705 0.015 286);
+  --neutral-500: oklch(0.552 0.016 286);
+  --neutral-600: oklch(0.42 0.012 286);
+  --neutral-700: oklch(0.35 0.010 286);
+  --neutral-800: oklch(0.274 0.006 286);
+  --neutral-900: oklch(0.21 0.006 286);
+  --neutral-950: oklch(0.141 0.005 286);
+
+  /* ----------------
+     LIGHT THEME
+     ---------------- */
+  --background: var(--neutral-50);
+  --foreground: var(--neutral-950);
+
+  --card: var(--neutral-50);
+  --card-foreground: var(--neutral-950);
+
+  --popover: var(--neutral-50);
+  --popover-foreground: var(--neutral-950);
+
+  --primary: var(--neutral-900);
+  --primary-foreground: var(--neutral-50);
+
+  --secondary: var(--neutral-100);
+  --secondary-foreground: var(--neutral-900);
+
+  --muted: var(--neutral-100);
+  --muted-foreground: var(--neutral-500);
+
+  --accent: var(--purple-100);
+  --accent-foreground: var(--purple-900);
+
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: var(--neutral-50);
+
+  --border: var(--neutral-200);
+  --input: var(--neutral-200);
+  --ring: var(--purple-500);
+
+  /* ----------------
+     CHART PALETTE
+     ---------------- */
+  --chart-1: var(--purple-500);
+  --chart-2: oklch(0.6 0.118 184.704);  /* Blue */
+  --chart-3: oklch(0.6 0.18 150);        /* Green */
+  --chart-4: oklch(0.65 0.22 40);        /* Orange */
+  --chart-5: oklch(0.65 0.20 10);        /* Red */
+
+  /* ----------------
+     SIDEBAR
+     ---------------- */
+  --sidebar: var(--background);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+
+  /* ----------------
+     GRADIENT PRESETS
+     Custom gradients for screenshot backgrounds
+     ---------------- */
+  --gradient-purple-dream: linear-gradient(135deg, var(--purple-500) 0%, var(--purple-700) 100%);
+  --gradient-sunset: linear-gradient(135deg, oklch(0.7 0.25 20) 0%, oklch(0.8 0.2 80) 100%);
+  --gradient-ocean: linear-gradient(135deg, oklch(0.65 0.15 210) 0%, oklch(0.7 0.18 190) 100%);
+  --gradient-mint: linear-gradient(135deg, oklch(0.7 0.15 160) 0%, oklch(0.75 0.18 140) 100%);
+  --gradient-fire: linear-gradient(135deg, oklch(0.65 0.25 35) 0%, oklch(0.55 0.28 15) 100%);
+}
+
+/* ========================================
+   DARK THEME
+   ======================================== */
+
+.dark {
+  /* ----------------
+     DARK THEME COLORS
+     ---------------- */
+  --background: var(--neutral-950);
+  --foreground: var(--neutral-50);
+
+  --card: var(--neutral-900);
+  --card-foreground: var(--neutral-50);
+
+  --popover: var(--neutral-900);
+  --popover-foreground: var(--neutral-50);
+
+  --primary: var(--purple-500);
+  --primary-foreground: var(--neutral-50);
+
+  --secondary: var(--neutral-800);
+  --secondary-foreground: var(--neutral-50);
+
+  --muted: var(--neutral-800);
+  --muted-foreground: var(--neutral-400);
+
+  --accent: var(--purple-900);
+  --accent-foreground: var(--purple-100);
+
+  --destructive: oklch(0.65 0.22 25);
+  --destructive-foreground: var(--neutral-50);
+
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: var(--purple-400);
+
+  /* ----------------
+     DARK CHART PALETTE
+     ---------------- */
+  --chart-1: var(--purple-400);
+  --chart-2: oklch(0.65 0.15 200);      /* Blue */
+  --chart-3: oklch(0.65 0.18 140);      /* Green */
+  --chart-4: oklch(0.7 0.22 45);        /* Orange */
+  --chart-5: oklch(0.65 0.23 15);       /* Red */
+
+  /* ----------------
+     DARK SIDEBAR
+     ---------------- */
+  --sidebar: var(--neutral-900);
+  --sidebar-foreground: var(--neutral-50);
+  --sidebar-primary: var(--purple-400);
+  --sidebar-primary-foreground: var(--neutral-50);
+  --sidebar-accent: var(--neutral-800);
+  --sidebar-accent-foreground: var(--neutral-50);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+}
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* ----------------
+     TYPOGRAPHY
+     ---------------- */
+  h1 {
+    @apply text-4xl font-bold;
+  }
+
+  h2 {
+    @apply text-3xl font-semibold;
+  }
+
+  h3 {
+    @apply text-2xl font-semibold;
+  }
+
+  h4 {
+    @apply text-xl font-medium;
+  }
+
+  /* ----------------
+     FOCUS STYLES
+     ---------------- */
+  :focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-ring;
+  }
+}
+
+/* ========================================
+   UTILITIES
+   ======================================== */
+
+@layer utilities {
+  /* ----------------
+     GRADIENT UTILITIES
+     ---------------- */
+  .gradient-purple-dream {
+    background: var(--gradient-purple-dream);
+  }
+
+  .gradient-sunset {
+    background: var(--gradient-sunset);
+  }
+
+  .gradient-ocean {
+    background: var(--gradient-ocean);
+  }
+
+  .gradient-mint {
+    background: var(--gradient-mint);
+  }
+
+  .gradient-fire {
+    background: var(--gradient-fire);
+  }
+
+  /* ----------------
+     ANIMATION UTILITIES
+     ---------------- */
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 8s ease infinite;
+  }
+
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+}
